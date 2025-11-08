@@ -116,12 +116,49 @@
 - **DataFrame**
 
     [公式解説](https://www.databricks.com/jp/glossary/what-are-dataframes)  
-    構造化されたデータを扱うための、列を持つ2次元のラベル付きデータ構造のことです。データフレームは、スプレッドシートやSQLのテーブルのようなものと考えると理解しやすいでしょう。Databricksで扱うデータフレームは、通常、Sparkデータフレームを指します。 by  Gemini
+    構造化されたデータを扱うための、列を持つ2次元のラベル付きデータ構造のことです。データフレームは、スプレッドシートやSQLのテーブルのようなものと考えると理解しやすいでしょう。Databricksで扱うデータフレームは、通常、Sparkデータフレームを指します。 ```by  Gemini```
 
 - **SQL WareHouse**
 
+    [公式解説](https://docs.databricks.com/aws/ja/compute/sql-warehouse/)  
+    SQLウェアハウスは、Databricks 上のデータのクエリと探索を可能にするコンピュート リソースです。
+    ほとんどのユーザーは、管理者によって設定された SQLウェアハウスにアクセスできます。
+    サーバレス コンピュートプレーンのアーキテクチャについては、サーバレス コンピュートプレーンを参照してください。
+    Databricks では、利用可能な場合はサーバーレス SQLウェアハウスを使用することをお勧めします。 ```公式解説抜粋```
 
 - **Database instance**
+
+    [公式解説](https://docs.databricks.com/aws/ja/oltp/instances/instance)  
+    Lakebase データベース インスタンスは、ストレージと コンピュート リソースを管理し、ユーザーが接続するエンドポイントを提供します。 このページには、データベース・インスタンスとその一般的な制限事項の概要が含まれています。 ```公式解説抜粋```
+
+- **探索的データ分析(EDA)**
+
+    [公式解説](https://docs.databricks.com/aws/ja/exploratory-data-analysis/) /
+    [公式チュートリアル](https://docs.databricks.com/aws/ja/notebooks/eda-tutorial)
+
+    探索的データ分析 (EDA) には、データ セットを探索して、その主な特性を要約し、データの問題を特定する方法が含まれています。 統計的手法と視覚化を使用して、データセットについて学習し、分析の準備が可能かどうかを判断し、データ準備に適用すべき手法を通知できます。 EDA は、ML モデルのトレーニングに適用するアルゴリズムにも影響を与える可能性があります。 ```公式解説抜粋```
+
+- **Lakeflow宣言型パイプライン / パイプライン構文**
+
+    [公式解説](https://docs.databricks.com/aws/ja/dlt/) / 
+    [公式tutorial](https://docs.databricks.com/aws/ja/dlt/tutorials)
+
+    Lakeflow 宣言型パイプラインは、 SQL と Pythonでバッチおよびストリーミング データパイプラインを作成するためのフレームワークです。 Lakeflow宣言型パイプラインの一般的なユースケースには、クラウドストレージ(Amazon S3、Azure ADLS Gen2、Google Cloud Storageなど)やメッセージバス(Apache Kafka、Amazon Kinesis、Google Pub/Sub、 Azure EventHub、Apache Pulsar)、およびインクリメンタル バッチとストリーミングの変換。 ```公式解説抜粋```
+
+
+
+- **インクリメンタルデータ**
+
+- **マテリアライズド・ビュー**
+
+
+- **Auto Loader**
+- **ETL / ELT**
+
+    [公式解説](https://www.databricks.com/jp/glossary/extract-transform-load)
+
+    ETLとは、「Extract（抽出）」「Transform（変換）」「Load（格納）」という3つの頭文字をとった、データ統合処理の基本的なプロセスを指します。
+    主に、企業内に散在する様々なデータソースから必要な情報を集め、分析や活用に適した形に整えて、**データウェアハウス（DWH）**などの一元的な場所に格納するために用いられます。```by Gemini```
 
 ## 主なリソース
 
@@ -167,11 +204,17 @@ Databricksの構築を行うための環境構築。
 - SQL WareHouseを構築
 - Databaes instanceを構築
 - CSVをDataCatalogにインポート
+- [Tableを作成](https://docs.databricks.com/aws/ja/tables/managed)
+- [Catalogの作成](https://docs.databricks.com/aws/ja/catalogs/create-catalog)
+- [Schemaの作成](https://docs.databricks.com/aws/ja/schemas/create-schema)
+- [Viewの作成](https://docs.databricks.com/aws/ja/views/create-views)
+- [Volumeの作成](https://docs.databricks.com/aws/ja/volumes/)
+- [権限の管理](https://docs.databricks.com/aws/ja/data-governance/unity-catalog/manage-privileges/)
+- [探索的データ分析(EDA)手法](https://docs.databricks.com/aws/ja/data-governance/unity-catalog/manage-privileges/)
 
 ## 主なデベロップメント
-
-- 
--
+- ETLパイプラインロジックの構築(Python or SQL)
+- JOBを定義してETLパイプラインの実行をスケジュール
 -
 
 ## 主なインテグレーション
@@ -182,27 +225,99 @@ Databricksの構築を行うための環境構築。
 - GitHub
 
 ## チュートリアル補足
+
+### はじめに
 |タイトル|所要時間目安|
 |--------|------------|
-|[チュートリアル: ノートブックからのデータのクエリと視覚化](https://docs.databricks.com/aws/ja/getting-started/quick-start)|15分|
-|[チュートリアル: ノートブックから CSV データをインポートして視覚化する](https://docs.databricks.com/aws/ja/getting-started/import-visualize-data)|30分|
-
+|[ノートブックからのデータのクエリと視覚化](https://docs.databricks.com/aws/ja/getting-started/quick-start)|15分|
+|[ノートブックから CSV データをインポートして視覚化する](https://docs.databricks.com/aws/ja/getting-started/import-visualize-data)|30分|
+|[初めてのテーブルを作成し、特権を付与する](https://docs.databricks.com/aws/ja/getting-started/create-table)|15分|
+|[ETL Lakeflow宣言型パイプラインを使用して パイプラインを構築する](https://docs.databricks.com/aws/ja/notebooks/eda-tutorial)|60分|
 
 
 ### チュートリアル: ノートブックから CSV データをインポートして視覚化する
 
 - 以下ネットワークに関するエラーが発生。
 
-回避策：アカウントの設定画面から外部接続を許可。
-```
-ExecutionError: (java.net.UnknownHostException) health.data.ny.gov
-```
-![alt text](image-1.png)
-設定したときは改善しなかったが1週間後に試したらできた。
-反映速度の問題？
-今度はOFFにして、もう少し寝かせる。
+    対応：アカウントの設定画面から外部接続を許可。
+    ```
+    ExecutionError: (java.net.UnknownHostException) health.data.ny.gov
+    ```
+    ![alt text](image-1.png)
+    設定したときは改善しなかったが1週間後に試したらできた。
+    反映速度の問題？
+    今度はOFFにして、もう少し寝かせる。
 
 - 作成したテーブルのサンプルデータが参照できない
-回避策：SQL WareHouseを構築
-![alt text](image-2.png)
 
+    対応：SQL WareHouseを構築
+    ![alt text](image-2.png)
+
+### ETL Lakeflow宣言型パイプラインを使用して パイプラインを構築する
+- ステップ２：パイプライン　ロジックの開発/成功の状態
+
+    画面下部にrawデータと２つのマテリアライズド・ビューが表示できたらOK.
+    表示まで少し時間がかかるので注意。
+    表示されない場合は、マテリアライズド・ビューの定義ロジックを確認。
+    ![alt text](image-4.png)
+
+- ステップ３：データセットの探索/成功の状態
+
+    SQLの結果が表示されたらOK
+    ![alt text](image-5.png)
+
+- ステップ４：ジョブの作成
+
+    Jobs & PipeLinsの一覧で以下２件が表示されればOK
+    ![alt text](image-6.png)
+
+- PythonコードでSYNTAX Errorが出ちゃった(エラーになったらこうなる)
+
+    対応：愚直になおしていく。
+    ![alt text](image-3.png)
+
+- データソースが読み込めない（Tableが存在しない）
+
+    対応：浅田の場合はスペルミスだったので修正
+
+    修正前コード
+    ```Python
+    def song_raw():
+        return (
+            spark.readStream
+                .format("cloudFiles")
+                .schema(schema)
+                .option("cloudFiles.format", "csv")
+                .option("sep","\t")
+                .load(file_path)
+        )
+    ```
+    修正後コード
+    ```Python
+    def songs_raw():
+        return (
+            spark.readStream
+                .format("cloudFiles")
+                .schema(schema)
+                .option("cloudFiles.format", "csv")
+                .option("sep","\t")
+                .load(file_path)
+        )
+    ```
+    エラーメッセージ
+    ```
+    pyspark.errors.exceptions.captured.AnalysisException: Traceback (most recent call last):
+    File "/Workspace/Users/noname.tkmt5@gmail.com/New Pipeline 2025-11-08 20:22/transformations/my_transformation.py", cell 1, line 53, in songs_prepared
+        spark.read.table("songs_raw")
+
+    pyspark.errors.exceptions.captured.AnalysisException: [TABLE_OR_VIEW_NOT_FOUND] The table or view `workspace`.`default`.`songs_raw` cannot be found. Verify the spelling and correctness of the schema and catalog.
+    If you did not qualify the name with a schema, verify the current_schema() output, or qualify the name with the correct schema and catalog.
+    To tolerate the error on drop use DROP VIEW IF EXISTS or DROP TABLE IF EXISTS. SQLSTATE: 42P01;
+    'UnresolvedRelation [workspace, default, songs_raw], [], false
+    ```
+
+
+## 雑多メモ
+- 標準的なテスト仕様書、基本設計書とか。サンプルとか作る
+- Assistantの言語を日本語化したい
+- ETLパイプラインの設計標準、ベストプラクティス、アンチパターン、テスト仕様とか考える
