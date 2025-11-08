@@ -2,15 +2,37 @@
 
 ## 参考資料
 
-- [公式チュートリアル](https://docs.databricks.com/aws/ja/getting-started)
--
--
--
--
--
--
--
+- [公式サイト](https://www.databricks.com/jp)
 
+    Databricksのコーポレートサイトも兼ねたサイト。Databricksの概要や導入事例について説明。
+
+- [公式ドキュメント](https://www.databricks.com/databricks-documentation)
+
+    技術ドキュメント。AWS,Azure,GCPそれぞれ記載。
+
+- [公式チュートリアル](https://docs.databricks.com/aws/ja/getting-started)
+
+    このセクションのチュートリアルでは、主要な機能を紹介し、Databricks プラットフォームの基本操作について説明します。
+
+- [公式トレーニングと認定](https://www.databricks.com/jp/learn/training/home) 
+
+    公式が提供しているトレーニングや動画。日本語もそれなりにある。
+
+    - [日本語×無料トレーニング](https://www.databricks.com/training/catalog?languages=JA&costs=free)
+    - おすすめトレーニング
+      - [Databricks Fundamentals - Japanese](https://www.databricks.com/jp/training/catalog/databricks-fundamentals-japanese-2298)
+      - [Get Started with Databricks for Data Engineering - Japanese](https://www.databricks.com/jp/training/catalog/get-started-with-databricks-for-data-engineering-japanese-2438)
+      - [Databricks Platform Administration Fundamentals - Japanese](https://www.databricks.com/jp/training/catalog/databricks-platform-administration-fundamentals-japanese-4662)
+      - [Developing Applications with Apache Spark™ - Japanese](https://www.databricks.com/jp/training/catalog/developing-applications-with-apache-spark-japanese-4554)
+      - [Build Data Pipelines with Lakeflow Declarative Pipelines - Japanese](https://www.databricks.com/jp/training/catalog/build-data-pipelines-with-lakeflow-declarative-pipelines-japanese-3284)
+
+        まだやってない。トレーニング説明だけ見て判断)
+
+
+# TODO
+- [ ] 公式サイトを参照
+- [ ] Databricksアカウントを作成
+- [ ] 公式チュートリアルを実施
 
 ## 専門用語集
 
@@ -43,7 +65,7 @@
 
     データレイク上に信頼性、セキュリティ、パフォーマンスを提供するために設計されたオープンソースのストレージレイヤー。ACIDトランザクション、スケーラブルなメタデータ処理、データバージョン管理などを可能にします。
 
-- **Spark**
+- **Apache Spark**
 
     大規模なデータ処理のためのオープンソースの分散コンピューティングシステム。  
     Databricks の基盤技術の一つです。
@@ -91,6 +113,16 @@
 
     企業組織用のアカウント。Community Editionに設定されている様々な制約が解除されている。
 
+- **DataFrame**
+
+    [公式解説](https://www.databricks.com/jp/glossary/what-are-dataframes)  
+    構造化されたデータを扱うための、列を持つ2次元のラベル付きデータ構造のことです。データフレームは、スプレッドシートやSQLのテーブルのようなものと考えると理解しやすいでしょう。Databricksで扱うデータフレームは、通常、Sparkデータフレームを指します。 by  Gemini
+
+- **SQL WareHouse**
+
+
+- **Database instance**
+
 ## 主なリソース
 
 - Users
@@ -130,6 +162,11 @@ Databricksの構築を行うための環境構築。
 - NotebookでCSVのデータをインポート
 - Notebookで変数を定義する
 - アカウントの設定でインターネットへの接続設定を変更
+- SQL Editorを利用してSQLを実行
+- SQL Editorで利用するComputeリソースを作成
+- SQL WareHouseを構築
+- Databaes instanceを構築
+- CSVをDataCatalogにインポート
 
 ## 主なデベロップメント
 
@@ -145,16 +182,27 @@ Databricksの構築を行うための環境構築。
 - GitHub
 
 ## チュートリアル補足
-URL：https://docs.databricks.com/aws/ja/getting-started/
+|タイトル|所要時間目安|
+|--------|------------|
+|[チュートリアル: ノートブックからのデータのクエリと視覚化](https://docs.databricks.com/aws/ja/getting-started/quick-start)|15分|
+|[チュートリアル: ノートブックから CSV データをインポートして視覚化する](https://docs.databricks.com/aws/ja/getting-started/import-visualize-data)|30分|
 
-|チュートリアル: ノートブックからのデータのクエリと視覚化|15分|
-|チュートリアル: ノートブックから CSV データをインポートして視覚化する|15分|
 
 
 ### チュートリアル: ノートブックから CSV データをインポートして視覚化する
 
+- 以下ネットワークに関するエラーが発生。
+
+回避策：アカウントの設定画面から外部接続を許可。
 ```
 ExecutionError: (java.net.UnknownHostException) health.data.ny.gov
 ```
-アカウントの設定画面から外部接続を許可。
 ![alt text](image-1.png)
+設定したときは改善しなかったが1週間後に試したらできた。
+反映速度の問題？
+今度はOFFにして、もう少し寝かせる。
+
+- 作成したテーブルのサンプルデータが参照できない
+回避策：SQL WareHouseを構築
+![alt text](image-2.png)
+
