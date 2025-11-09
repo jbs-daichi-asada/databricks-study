@@ -14,24 +14,24 @@
 
     このセクションのチュートリアルでは、主要な機能を紹介し、Databricks プラットフォームの基本操作について説明します。
 
-- [公式トレーニングと認定](https://www.databricks.com/jp/learn/training/home) 
+- [公式トレーニングと認定](https://www.databricks.com/jp/learn/training/home)
 
     公式が提供しているトレーニングや動画。日本語もそれなりにある。
 
-    - [日本語×無料トレーニング](https://www.databricks.com/training/catalog?languages=JA&costs=free)
-    - おすすめトレーニング
-      - [Databricks Fundamentals - Japanese](https://www.databricks.com/jp/training/catalog/databricks-fundamentals-japanese-2298)
-      - [Get Started with Databricks for Data Engineering - Japanese](https://www.databricks.com/jp/training/catalog/get-started-with-databricks-for-data-engineering-japanese-2438)
-      - [Databricks Platform Administration Fundamentals - Japanese](https://www.databricks.com/jp/training/catalog/databricks-platform-administration-fundamentals-japanese-4662)
-      - [Developing Applications with Apache Spark™ - Japanese](https://www.databricks.com/jp/training/catalog/developing-applications-with-apache-spark-japanese-4554)
-      - [Build Data Pipelines with Lakeflow Declarative Pipelines - Japanese](https://www.databricks.com/jp/training/catalog/build-data-pipelines-with-lakeflow-declarative-pipelines-japanese-3284)
+  - [日本語×無料トレーニング](https://www.databricks.com/training/catalog?languages=JA&costs=free)
+  - おすすめトレーニング
+    - [Databricks Fundamentals - Japanese](https://www.databricks.com/jp/training/catalog/databricks-fundamentals-japanese-2298)
+    - [Get Started with Databricks for Data Engineering - Japanese](https://www.databricks.com/jp/training/catalog/get-started-with-databricks-for-data-engineering-japanese-2438)
+    - [Databricks Platform Administration Fundamentals - Japanese](https://www.databricks.com/jp/training/catalog/databricks-platform-administration-fundamentals-japanese-4662)
+    - [Developing Applications with Apache Spark™ - Japanese](https://www.databricks.com/jp/training/catalog/developing-applications-with-apache-spark-japanese-4554)
+    - [Build Data Pipelines with Lakeflow Declarative Pipelines - Japanese](https://www.databricks.com/jp/training/catalog/build-data-pipelines-with-lakeflow-declarative-pipelines-japanese-3284)
 
         まだやってない。トレーニング説明だけ見て判断)
 
 - [【公式/英語】Apache Spark](https://spark.apache.org/)
 
+## TODO
 
-# TODO
 - [ ] 公式サイトを参照
 - [ ] Databricksアカウントを作成
 - [ ] 公式チュートリアルを実施
@@ -144,17 +144,15 @@
 
 - **Lakeflow宣言型パイプライン / パイプライン構文**
 
-    [公式解説](https://docs.databricks.com/aws/ja/dlt/) / 
-    [公式tutorial](https://docs.databricks.com/aws/ja/dlt/tutorials)
+    [公式解説](https://docs.databricks.com/aws/ja/dlt/) / [公式tutorial](https://docs.databricks.com/aws/ja/dlt/tutorials)
 
     Lakeflow 宣言型パイプラインは、 SQL と Pythonでバッチおよびストリーミング データパイプラインを作成するためのフレームワークです。 Lakeflow宣言型パイプラインの一般的なユースケースには、クラウドストレージ(Amazon S3、Azure ADLS Gen2、Google Cloud Storageなど)やメッセージバス(Apache Kafka、Amazon Kinesis、Google Pub/Sub、 Azure EventHub、Apache Pulsar)、およびインクリメンタル バッチとストリーミングの変換。 ```公式解説抜粋```
-
-
 
 - **インクリメンタルデータ**
 
 - **マテリアライズド・ビュー**
 
+- **データオーケストレーション**
 
 - **Auto Loader**
 - **ETL / ELT**
@@ -195,9 +193,10 @@ Databricksの構築を行うための環境構築。
 
 - Databricks Enterprise Editionアカウントの契約
 - ユーザー登録/ユーザー削除
-- Workspacの作成/削除
-- Workspacにユーザーを招待/削除
+- Workspaceの作成/削除
+- Workspaceにユーザーを招待/削除
 - Notebookの作成/削除
+  - 関連する CloudFormation Stackの削除
 - NotebookでSQLを実行
 - Notebookでデータをビジュアル化
 - NotebookでCSVのデータをインポート
@@ -215,8 +214,10 @@ Databricksの構築を行うための環境構築。
 - [Volumeの作成](https://docs.databricks.com/aws/ja/volumes/)
 - [権限の管理](https://docs.databricks.com/aws/ja/data-governance/unity-catalog/manage-privileges/)
 - [探索的データ分析(EDA)手法](https://docs.databricks.com/aws/ja/data-governance/unity-catalog/manage-privileges/)
+- [ワークスペースのデプロイ用の S3 バケットを作成する](https://docs.databricks.com/aws/ja/admin/account-settings-e2/storage)
 
 ## 主なデベロップメント
+
 - ETLパイプラインロジックの構築(Python or SQL)
 - JOBを定義してETLパイプラインの実行をスケジュール
 -
@@ -231,22 +232,25 @@ Databricksの構築を行うための環境構築。
 ## チュートリアル補足
 
 ### はじめに
+
 |タイトル|所要時間目安|
 |--------|------------|
 |[ノートブックからのデータのクエリと視覚化](https://docs.databricks.com/aws/ja/getting-started/quick-start)|15分|
 |[ノートブックから CSV データをインポートして視覚化する](https://docs.databricks.com/aws/ja/getting-started/import-visualize-data)|30分|
 |[初めてのテーブルを作成し、特権を付与する](https://docs.databricks.com/aws/ja/getting-started/create-table)|15分|
 |[ETL Lakeflow宣言型パイプラインを使用して パイプラインを構築する](https://docs.databricks.com/aws/ja/notebooks/eda-tutorial)|60分|
-
+|[Databricks プラットフォーム上の Apache Spark を使用して ETL パイプラインを構築する](https://docs.databricks.com/aws/ja/getting-started/etl-quick-start)|30分|
 
 ### チュートリアル: ノートブックから CSV データをインポートして視覚化する
 
 - 以下ネットワークに関するエラーが発生。
 
     対応：アカウントの設定画面から外部接続を許可。
-    ```
+
+    ```log
     ExecutionError: (java.net.UnknownHostException) health.data.ny.gov
     ```
+
     ![alt text](image-1.png)
     設定したときは改善しなかったが1週間後に試したらできた。
     反映速度の問題？
@@ -258,6 +262,7 @@ Databricksの構築を行うための環境構築。
     ![alt text](image-2.png)
 
 ### ETL Lakeflow宣言型パイプラインを使用して パイプラインを構築する
+
 - ステップ２：パイプライン　ロジックの開発/成功の状態
 
     画面下部にrawデータと２つのマテリアライズド・ビューが表示できたらOK.
@@ -285,6 +290,7 @@ Databricksの構築を行うための環境構築。
     対応：浅田の場合はスペルミスだったので修正
 
     修正前コード
+
     ```Python
     def song_raw():
         return (
@@ -296,7 +302,9 @@ Databricksの構築を行うための環境構築。
                 .load(file_path)
         )
     ```
+
     修正後コード
+
     ```Python
     def songs_raw():
         return (
@@ -308,8 +316,10 @@ Databricksの構築を行うための環境構築。
                 .load(file_path)
         )
     ```
+
     エラーメッセージ
-    ```
+
+    ```log
     pyspark.errors.exceptions.captured.AnalysisException: Traceback (most recent call last):
     File "/Workspace/Users/noname.tkmt5@gmail.com/New Pipeline 2025-11-08 20:22/transformations/my_transformation.py", cell 1, line 53, in songs_prepared
         spark.read.table("songs_raw")
@@ -320,8 +330,38 @@ Databricksの構築を行うための環境構築。
     'UnresolvedRelation [workspace, default, songs_raw], [], false
     ```
 
+## Databricks プラットフォーム上の Apache Spark を使用して ETL パイプラインを構築する
+
+- クラスターの作成方法がわからない
+
+    コンピュートメニューに「クラスター」作成機能が表示されない。
+    ![alt text](image-9.png)
+
+    対応：以下資料を参照し新しくWorkspaceを作成。作ってみたものの高額なノードタイプしか選べなかったので使わなかった。コンピュートの作成はスキップして、サーバーレスで進める。
+
+    [AWS クイックスタートを使用してワークスペースを作成する (推奨)](https://docs.databricks.com/aws/ja/admin/workspace/quick-start)
+
+    結果イメージ
+    ![alt text](image-11.png)
+
+- root is disabled. Access is denied
+
+    対応：AWSアカウントと連動したworkspaceを作成 / [公式ドキュメント](https://docs.databricks.com/aws/ja/admin/account-settings-e2/storage)
+
+    ※実際は、ストレージ作成は行わず
+
+    ```log
+    ExecutionError: Public DBFS root is disabled. Access is denied on path: /tmp/noname_tkmt5_gmail_com/_checkpoint/etl_quickstart
+    ```
 
 ## 雑多メモ
+
 - 標準的なテスト仕様書、基本設計書とか。サンプルとか作る
 - Assistantの言語を日本語化したい
 - ETLパイプラインの設計標準、ベストプラクティス、アンチパターン、テスト仕様とか考える
+- databricksリソースをIaCで管理したい
+- 日本語化
+- ![alt text](image-8.png)
+- AWS環境からVPC内でdatabricksに接続する
+- AWSのマーケットプレイスからdatabricksを契約する
+- AWSアカウントとDatabricks workspaceを連動した時にStackを削除してもすべてのリソースが削除されない。削除すべきリソースはCloudTrailを見ればわかるかも
